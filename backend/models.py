@@ -1,3 +1,4 @@
+## model the database
 from sqlalchemy import Column, Integer, String, Float, DateTime
 from sqlalchemy.sql import func
 from database import Base
@@ -11,4 +12,4 @@ class ProductModel(Base): ## Gets the base from the orm
     price = Column(Float)
     category = Column(String(30))
     email_supplier = Column(String(250))
-    created_at = Column(DateTime(timezone=True),default=func.now)
+    created_at = Column(DateTime(timezone=True),default=func.now())

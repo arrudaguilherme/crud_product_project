@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 services:
   postgres:
     image: postgres:latest
@@ -10,6 +10,22 @@ services:
       POSTGRES_PASSWORD: password
     networks:
       - mynetwork
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+    environment:
+      DATABASE_URL: postgresql://user:password@postgres/mydatabase
+    ports:
+      - "8000:8501"
+    depends_on:
+      - postgres
+    networks:
+      - mynetwork
+
 networks:
   mynetwork:
 

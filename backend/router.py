@@ -7,6 +7,10 @@ from crud import get_products, get_product_by_id, create_product, update_product
 
 router = APIRouter()
 
+@router.get("/")
+def root():
+    return ({"Hello" : "World"})
+
 # route get items
 @router.get("/products/",response_model=List[ProductResponse]) ## path and response
 def get_all_products(db:Session = Depends(get_db)):
