@@ -8,6 +8,8 @@ services:
       POSTGRES_DB: mydatabase
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
     networks:
       - mynetwork
 
@@ -26,8 +28,23 @@ services:
     networks:
       - mynetwork
 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com  # Defina um email para o login do pgAdmin
+      PGADMIN_DEFAULT_PASSWORD: admin123  # Defina uma senha para o login do pgAdmin
+    ports:
+      - "8080:80"  # Porta 8080 será exposta no host
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin  # Persistência dos dados do pgAdmin
+    networks:
+      - mynetwork
+    depends_on:
+      - postgres
+
 networks:
   mynetwork:
 
 volumes:
   postgres_data:
+  pgadmin_data:

@@ -45,7 +45,7 @@ def update_product(product: ProductUpdate, product_id: int, db: Session):
         db_product.email_supplier = product.email_supplier
 
     db.commit()
-    db.refresh()
+    db.refresh(db_product)
     return db_product
 
 
