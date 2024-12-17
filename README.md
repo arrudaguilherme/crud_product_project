@@ -128,7 +128,7 @@ For the `id` field, by setting the field type to `Integer` and using the `primar
 For the `created_at` field, by setting the field type to DateTime and using the default=datetime parameter, SQLAlchemy understands that this field will store the creation date of the record.
 
 Remember:
-1) The model doesn't which database is created, it's blind. It'll import the base from the database!
+1) The model doesn't know which database is created, it's blind. It'll import the base from the database!
 2) Declare your table
 
 ## `schemas.py` File:
