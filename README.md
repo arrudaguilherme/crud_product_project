@@ -24,7 +24,7 @@ Standard credentials:
 
 `User : admin@admin.com`
 
-`Password :admin@123`
+`Password : admin@123`
 
 ## Folder Structure and files:
 ```
@@ -42,11 +42,11 @@ The Backend is an API responsible for the communication between our Frontend and
 
 ## FastAPI
 
-FastAPI is a web framework fro building API's. It's based on Starlette, which is an assync framewrok for building API's.
+FastAPI is a web framework for building API's. It's based on Starlette, which is an asynchronous framework for building API's.
 
 ## Uvicorn
 
-Uvicorn is an assync web server based on ASGI, specified to assync web servers. It's the most recomended one to use with FastAPI.
+Uvicorn is an asynchronous web server based on ASGI, specified to assync web servers. It is the most recommended one to use with FastAPI.
 
 ## SQLAlchemy
 
@@ -73,14 +73,14 @@ This file `docker-compose.yml` defines an application with 4 services: `postgres
 * `depends_on:` Indicates that this service depends on the `postgres` service, ensuring that the database is ready before the backend is started.
 * `networks:` Also specifies that this service is on the mynetwork `network`.
 
-Backend directory Structure:
+Backend Directory Structure:
 ```
 ├── Dockerfile
 ├── crud.py # Contains the functions for each operation using the SLQAlchemy ORM
 ├── database.py # Contains the config to the SQLAlchemy
 ├── main.py
 ├── models.py # Reflects the database table model
-├── schemas.py # Contains de Pydantic validator model, which is going to be input by the user. It doesn't have the ID and created_at fields
+├── schemas.py # Contains the Pydantic validator model, which is going to be input by the user. It doesn't have the ID and created_at fields
 ├── router.py # Contains all the routes calling the funcions from the crud.py file
 └── requirements.txt # Requirements and libs for the Backend
 ```
@@ -117,7 +117,7 @@ Remember:
 1) Declare the Database URL
 2) Create the engine using the `create_engine` statement
 3) Create a Session for the database
-4) Create the ORM Base (The model is going to herith from it)
+4) Create the ORM Base (The model is going to inherit from it)
 5) Create a Session generator to be re-used (I created a `get_db()`)
 
 ## `models.py` File:
@@ -128,13 +128,13 @@ For the `id` field, by setting the field type to `Integer` and using the `primar
 For the `created_at` field, by setting the field type to DateTime and using the default=datetime parameter, SQLAlchemy understands that this field will store the creation date of the record.
 
 Remember:
-1) The model doesn't know which database is created, it's blind. It'll import the base from the database!
+1) The model doesn't know which database is created, it's indifferent. It'll import the base from the database!
 2) Declare your table
 
 ## `schemas.py` File:
 The `schemas.py` file is responsible for defining the Pydantic schemas, which are the classes that define the data types used in the API. These schemas are used to validate the data received by the API and to define the data types that are returned by the API.
 
-Pydantic is the main library for data validation in Python, and it is used by FastAPI to perform validation on the incoming data and to define the data types returned by the API.
+Pydantic is the main library for data validation in Python, and is used by FastAPI to perform validation on the incoming data and to define the data types returned by the API.
 
 Additionally, Pydantic integrates very well with SQLAlchemy, the library used to communicate with the database.
 
