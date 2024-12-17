@@ -27,6 +27,17 @@ services:
       - postgres
     networks:
       - mynetwork
+  
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "8502:8502"
+    networks:
+      - mynetwork
 
   pgadmin:
     image: dpage/pgadmin4:latest

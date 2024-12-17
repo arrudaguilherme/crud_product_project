@@ -31,7 +31,7 @@ def insert_product(product:ProductCreate,db: Session = Depends(get_db)):
     return create_product(product=product,db=db)
 
 # route to delete an item
-@router.delete("products/{product_id}",response_model=ProductResponse)
+@router.delete("/products/{product_id}",response_model=ProductResponse)
 def delete_product(product_id: int, db: Session = Depends(get_db)):
     product_db = delete_product_by_id(product_id=product_id,db=db)
     if product_db is None:
