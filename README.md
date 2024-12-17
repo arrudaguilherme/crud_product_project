@@ -4,7 +4,7 @@
 ### This project involves building an interactive Dashboard to perform an API's basics operations (Create, Read, Update and Delete). The application uses Docker, which allows us to run anywhere if we have docker installed in our own machine. Steps Bellow ⬇️⬇️!
 
 ## Architecture:
-![CRUD Image](assets./api_architecture)
+![CRUD Image](assets/api_architecture)
 
 ## Installing and Using Docker
 
