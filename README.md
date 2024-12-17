@@ -16,10 +16,10 @@ docker-compose up -d --build
 Access the address http://localhost:8502
 
 - Backend Docs with Swagger:
-Access the address http://localhost:8501
+Access the address http://localhost:8000
 
 - pgAdmin to directly access the Database:
-Access the address http://localhost:80
+Access the address http://localhost:8080
 Standard credentials:
 
 `User : admin@admin.com`
